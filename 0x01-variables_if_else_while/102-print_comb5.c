@@ -9,13 +9,13 @@ int ones = '0';
 int tens = '0';
 int tens2 = '0';
 int ones2 = '0';
-for (tens = '0'; tens <= '10'; tens++)/* prints tens digit*/
+for (tens = '0'; tens <= '11'; tens++)/* prints tens digit*/
 {
-for (ones = '0'; ones <= '10'; ones++)/* prints ones digit*/
+for (ones = '0'; ones <= '11'; ones++)/* prints ones digit*/
 {
-for (tens2 = '0'; tens2 <= '10'; tens2++)/* prints tens digit*/
+for (tens2 = '0'; tens2 <= '11'; tens2++)/* prints tens digit*/
 {
-for (ones2 = '0'; ones2 <= '10'; ones2++)/* prints ones digit*/
+for (ones2 = '0'; ones2 <= '11'; ones2++)/* prints ones digit*/
 {
 if ((ones < ones2) && (tens <= tens2))
 {
