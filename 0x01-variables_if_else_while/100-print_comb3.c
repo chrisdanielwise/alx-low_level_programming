@@ -1,24 +1,33 @@
 #include <stdio.h>
 /**
- *main - Entry point, print 00 to 99 using putchar
- *Return: Always 0 (Success)
+ * main - Prints numbers between 00 to 89.
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-int x;
-int y;
-for (x = '0' ; x <= '9' ; x++)
+int i, e;
+i = 48;
+e = 48;
+while (e < 58)
 {
-for (y = '0' ; y <= '9' ; y++)
+i = 48;
+while (i < 58)
 {
-putchar(x);
-putchar(y);
-if (!(x == '9' && y == '9'))
+if (e != i && e < i)
 {
+putchar(e);
+putchar(i);
+if (i == 57 && e == 56)
+{
+break;
+}
 putchar(',');
 putchar(' ');
 }
+i++;
 }
+e++;
 }
 putchar('\n');
 return (0);
