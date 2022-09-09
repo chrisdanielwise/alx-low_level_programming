@@ -1,38 +1,45 @@
 #include <stdio.h>
 /**
- * main - prints all possible different combinations of two digits.
+ * main - Prints numbers between 00 to 99.
+ *    
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-int ones = '0';
-int tens = '0';
-int tens2 = '0';
-int ones2 = '0';
-for (tens = '0'; tens <= '11'; tens++)/* prints tens digit*/
+int i, e, g, h, op1, op2;
+i = e = g = h = 48;
+while (h < 58)
 {
-for (ones = '0'; ones <= '11'; ones++)/* prints ones digit*/
+g = 48;
+while (g < 58)
 {
-for (tens2 = '0'; tens2 <= '11'; tens2++)/* prints tens digit*/
+e = 48;
+while (e < 58)
 {
-for (ones2 = '0'; ones2 <= '11'; ones2++)/* prints ones digit*/
+i = 48;
+while (i < 58)
 {
-if ((ones < ones2) && (tens <= tens2))
+op1 = (h * 10) + g;
+op2 = (e * 10) + i;
+if (op1 < op2)
 {
-putchar(tens);
-putchar(ones);
+putchar(h);
+putchar(g);
 putchar(' ');
-putchar(tens2);
-putchar(ones2);
-if (!(ones == '8' && tens == '9'))/*addes comma and space*/
-{
+putchar(e);
+putchar(i);
+if (h == 57 && g == 56 && e == 57 && i == 57)
+break;
 putchar(',');
 putchar(' ');
 }
+i++;
 }
+e++;
 }
+g++;
 }
-}
+h++;
 }
 putchar('\n');
 return (0);
