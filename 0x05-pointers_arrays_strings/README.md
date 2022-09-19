@@ -1,0 +1,1 @@
+A c program that show practical examples of pointers arrays and strings
