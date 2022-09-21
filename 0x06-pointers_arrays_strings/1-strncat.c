@@ -1,54 +1,35 @@
 #include "main.h"
 /**
- * _strncat - concatenates two strings,
- * @dest: destination.
- * @src: source.
- * @n: print amount of bytes used from src.
- * Return: the pointer to destination
+ *_strncat- append string
+ *@dest: checked
+ *@src: checked
+ *@n: checked
+ *Return: dest
  */
+
 char *_strncat(char *dest, char *src, int n)
 {
-	int count = 0, count2 = 0;
+	int i, j;
 
-	while (*(dest + count) != '\0')
+	i = 0;
+
+	j = 0;
+
+	while (*(dest + i) != '\0')
 	{
-		count++;
+		i++;
+		j++;
 	}
 
-	while (count2 < n)
-	{
-		*(dest + count) = *(src + count2);
-		if (*(src + count2) == '\0')
-			break;
-		count++;
-		count2++;
-	}
-	return (dest);
-}
-#include "main.h"
-/**
- * _strncat - concatenates two strings,
- * @dest: destination.
- * @src: source.
- * @n: print amount of bytes used from src.
- * Return: the pointer to destination
- */
-char *_strncat(char *dest, char *src, int n)
-{
-	int count = 0, count2 = 0;
+	i = 0;
 
-	while (*(dest + count) != '\0')
+	while (*(src + i) != *(src + n))
 	{
-		count++;
+		dest[j] = src[i];
+		i++;
+		j++;
 	}
+	dest[j] = '\0';
 
-	while (count2 < n)
-	{
-		*(dest + count) = *(src + count2);
-		if (*(src + count2) == '\0')
-			break;
-		count++;
-		count2++;
-	}
 	return (dest);
 }
