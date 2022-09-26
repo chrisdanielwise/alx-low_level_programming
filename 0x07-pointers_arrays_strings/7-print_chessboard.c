@@ -1,22 +1,22 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
- * print_diagsums - prints the sum of the two
- * diagonals of a square matrix of integers
+ * print_chessboard - prints the chessboard
  * @a: input pointer.
- * @size: size of the matrix
  * Return: no return.
  */
-void print_diagsums(int *a, int size)
+void print_chessboard(char (*a)[8])
 {
-	int i, sum1 = 0, sum2 = 0;
+	unsigned int i, m = 0;
 
-	for (i = 0; i < (size * size); i++)
+	for (i = 0; i < 64; i++)
 	{
-		if (i % (size + 1) == 0)
-			sum1 += *(a + i);
-		if (i % (size - 1) == 0 && i != 0 && i < size * size - 1)
-			sum2 += *(a + i);
+		if (i % 8 == 0 && i != 0)
+		{
+			m = i;
+			_putchar('\n');
+		}
+		_putchar(a[i / 8][i - m]);
 	}
-	printf("%d, %d\n", sum1, sum2);
+	_putchar('\n');
 }
