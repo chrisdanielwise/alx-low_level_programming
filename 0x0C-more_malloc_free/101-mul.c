@@ -1,6 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
 * main - multiply 2 numbers as arguments
