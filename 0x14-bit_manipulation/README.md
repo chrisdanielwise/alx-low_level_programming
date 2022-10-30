@@ -24,4 +24,4 @@ Mandatory
 Advanced
 100-get_endianness.c - function that checks the endianness.
 
-101-password - finds the password for this program and saves it in a file.
+101-password - finds the password for this program and saves it in a File.
