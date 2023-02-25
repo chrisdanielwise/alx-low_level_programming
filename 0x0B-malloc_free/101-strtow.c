@@ -1,101 +1,68 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
-*strtow - splits a stirng into words
-*@str: string to be splitted
-*
-*Return: pointer to the array of splitted words
-*/
+ * ch_free_grid - frees a 2 dimensional array
+ * @grid: multidimensional array of char.
+ * @height: height of the array
+ *
+ * Return: no return
+ */
+void ch_free_grid(char **grid, unsigned int height)
+{
+	if (grid != NULL && height != 0)
+	{
+		for (; height > 0; height--)
+			free(grid[height]);
+		free(grid[height]);
+		free(grid);
+	}
+}
 
+/**
+ * strtow - splits a string into words
+ * @str: string of words to be split
+ * Return: pointer to an array of strings (success) or NULL
+ * if str == NULL or str == "" or function fails
+ */
 char **strtow(char *str)
 {
-char **split;
-int i, j = 0, temp = 0, size = 0, words = num_words(str);
+	char **aout;
+	unsigned int c, height, i, j, a1;
 
-if (words == 0)
-return (NULL);
-split = (char **) malloc(sizeof(char *) * (words + 1));
-if (split != NULL)
-{
-for (i = 0; i <= len(str) && words; i++)
-{
-if ((str[i] != ' ') && (str[i] != '\0'))
-size++;
-else if (((str[i] == ' ') || (str[i] == '\0')) && i && (str[i - 1] != ' '))
-{
-split[j] = (char *) malloc(sizeof(char) * size + 1);
-if (split[j] != NULL)
-{
-while (temp < size)
-{
-split[j][temp] = str[(i - size) +temp];
-temp++;
-}
-split[j][temp] = '\0';
-size = temp = 0;
-j++;
-}
-else
-{
-while (j-- >= 0)
-free(split[j]);
-free(split);
-return (NULL);
-}
-}
-}
-split[words] = NULL;
-return (split);
-}
-else
-return (NULL);
-}
-
-
-/**
-* num_words - counts the number of words in str
-*@str: string to be used
-*
-*Return: number of words
-*/
-int num_words(char *str)
-{
-int i = 0, words = 0;
-
-while (i <= len(str))
-{
-if ((str[i] != ' ') && (str[i] != '\0'))
-{
-i++;
-}
-else if (((str[i] == ' ') || (str[i] == '\0')) && i && (str[i - 1] != ' '))
-{
-words += 1;
-i++;
-}
-else
-{
-i++;
-}
-}
-return (words);
-}
-
-/**
-* len - returns length of str
-*@str: string to be counted
-*
-* Return: length of the string
-*/
-
-int len(char *str)
-{
-int len = 0;
-
-if (str != NULL)
-{
-while (str[len])
-len++;
-}
-return (len);
+	if (str == NULL || *str == '\0')
+		return (NULL);
+	for (c = height = 0; str[c] != '\0'; c++)
+		if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+			height++;
+	aout = malloc((height + 1) * sizeof(char *));
+	if (aout == NULL || height == 0)
+	{
+		free(aout);
+		return (NULL);
+	}
+	for (i = a1 = 0; i < height; i++)
+	{
+		for (c = a1; str[c] != '\0'; c++)
+		{
+			if (str[c] == ' ')
+				a1++;
+			if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+			{
+				aout[i] = malloc((c - a1 + 2) * sizeof(char));
+				if (aout[i] == NULL)
+				{
+					ch_free_grid(aout, i);
+					return (NULL);
+				}
+				break;
+			}
+		}
+		for (j = 0; a1 <= c; a1++, j++)
+			aout[i][j] = str[a1];
+		aout[i][j] = '\0';
+	}
+	aout[i] = NULL;
+	return (aout);
 }

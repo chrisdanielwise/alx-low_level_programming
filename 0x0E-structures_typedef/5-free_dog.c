@@ -1,18 +1,16 @@
-#include "dog.h"
 #include <stdlib.h>
+#include "dog.h"
+
 /**
- * free_dog - check the code for Holberton School students.
- * @d: decimal
- * Return: Always 0.
+ * free_dog - frees dog struct
+ * @d: pointer to dog struct to free
  */
 void free_dog(dog_t *d)
 {
-if (d)
-{
-if (d->name)
-free(d->name);
-if (d->owner)
-free(d->owner);
-free(d);
-}
+	if (d)
+	{
+		free(d->name);
+		free(d->owner);
+		free(d);
+	}
 }

@@ -1,2 +1,3 @@
-DYNAMIC LIBRARIES
-Language: C
+# DYNAMIC LIBRARIES
+
+* Language: **C**

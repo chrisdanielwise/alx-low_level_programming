@@ -1,30 +1,35 @@
 #include "main.h"
+
 /**
- * cap_string - capitalizes all words of a string
- * @s: input string.
- * Return: the pointer to dest.
+ * cap_string - capitalize all words of a string
+ * @str: string to be capitalized
+ * Return: str
  */
-
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
-	int count = 0, i;
-	int sep_words[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+	int i, c;
+	int trigger;
+	char nots[] = ",;.!?(){}\n\t\" ";
 
-	if (*(s + count) >= 97 && *(s + count) <= 122)
-		*(s + count) = *(s + count) - 32;
-	count++;
-	while (*(s + count) != '\0')
+	for (i = 0, trigger = 0; str[i] != '\0'; i++)
 	{
-		for (i = 0; i < 13; i++)
+		if (str[0] > 96 && str[0] < 123)
+			trigger = 1;
+		for (c = 0; nots[c] != '\0'; c++)
+			if (nots[c] == str[i])
+				trigger = 1;
+		if (trigger)
 		{
-			if (*(s + count) == sep_words[i])
+			if (str[i] > 96 && str[i] < 123)
 			{
-				if ((*(s + (count + 1)) >= 97) && (*(s + (count + 1)) <= 122))
-					*(s + (count + 1)) = *(s + (count + 1)) - 32;
-				break;
+				str[i] -= 32;
+				trigger = 0;
 			}
+			else if (str[i] > 64 && str[i] < 91)
+				trigger = 0;
+			else if (str[i] > 47 && str[i] < 58)
+				trigger = 0;
 		}
-		count++;
 	}
-	return (s);
+	return (str);
 }

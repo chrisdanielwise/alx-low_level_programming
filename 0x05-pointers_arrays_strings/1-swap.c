@@ -1,13 +1,15 @@
 #include "main.h"
+
 /**
- * swap_int  - takes reset its value to 98.
- * @a: first int.
- * @b: second int.
- * return: void.
+ * swap_int - swaps the values of two integers
+ *
+ * @a: first integer
+ * @b: second integer
  */
 void swap_int(int *a, int *b)
 {
-	int c = *b;
-	*b = *a;
-	*a = c;
+	int i = *a;
+	int j = *b;
+	*a = j;
+	*b = i;
 }

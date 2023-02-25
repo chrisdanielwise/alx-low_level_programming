@@ -1,17 +1,12 @@
-#include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
-#include "lists.h"
 
-void first(void) __attribute__ ((constructor));
+void print_before_main(void) __attribute__ ((constructor));
 
 /**
- * first - prints something before main
- *
- * Return: void
+ * print_before_main - prints stuff before main
  */
-void first(void)
+void print_before_main(void)
 {
-	printf("You're beat! and yet, you must allow,\n");
-	printf("I bore my house upon my back!\n");
+	printf("You're beat! and yet, you must allow,\n"
+		"I bore my house upon my back!\n");
 }

@@ -1,43 +1,40 @@
 #include "main.h"
-/**
- * alloc_grid - allocates a grid, make space and free space
- * @width: takes in width of grid
- * @height: height of grid
- * Return: grid with freed spaces
- */
+#include <stdio.h>
+#include <stdlib.h>
 
+/**
+ * alloc_grid - returns a pointer to a 2D array of integers
+ * @width: width parameter
+ * @height: height parameter
+ * Return: pointer to 2d array of int if success and NULL on
+ * failure or if widht or height is 0 or negative
+ */
 int **alloc_grid(int width, int height)
 {
-/*Declaring variables*/
-int **grid;
-int i, j;
+	int i, j, len, **x;
 
-if (width <= 0 || height <= 0)
-{
-return (NULL);
-}
+	if (width <= 0 || height <= 0)
+		return (NULL);
 
-grid = malloc(sizeof(int *) * height); /*malloc*/
+	x = (int **)malloc(sizeof(int *) * height);
 
-if (grid == NULL)
-{
-return (NULL);
-}
+	if (x == NULL)
+		return (NULL);
+	for (i = 0; i < height; i++)
+	{
+		x[i] = (int *)malloc(sizeof(int) * width);
 
-for (i = 0; i < height; i++)
-{
-grid[i] = malloc(sizeof(int) * width);
-if (grid[i] == NULL)
-{
-for (i = i - 1; i >= 0; i--)
-{
-free(grid[i]);
-}
-free(grid);
-return (NULL);
-}
-}
-for (i = 0; j < width; j++)
-grid[i][j] = 0;
-return (grid);
+		if (x[i] == NULL)
+		{
+			for (j = 0; j < i; j++)
+				free(x[j]);
+			free(x);
+
+			return (NULL);
+		}
+		len = 0;
+		for (j = 0; j < width; j++)
+			x[i][j] = len;
+	}
+	return (x);
 }

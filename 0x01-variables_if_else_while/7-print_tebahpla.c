@@ -1,15 +1,18 @@
 #include <stdio.h>
+
 /**
- * main - random numbers
- * Return: last digit
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-char x;
-for (x = 'z'; x >= 'a'; x--)
-{
-putchar(x);
-}
-putchar('\n');
-return (0);
+	int ch;
+
+	for (ch = 'z'; ch >= 'a'; ch--)
+
+		putchar(ch);
+	putchar('\n');
+
+	return (0);
 }

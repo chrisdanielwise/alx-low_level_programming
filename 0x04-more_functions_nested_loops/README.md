@@ -1,1 +1,2 @@
-This scripts shows an advanced solved problems on nexted and more functions in c programming.
+# ALX 0x04, C - Morefunctions, more nested loops
+This directory contains all the tasks for the above mentioned project

@@ -1,3 +1,2 @@
-0x0E Structures, typedef About An introductory project on:
-
-When, why and how to use structures How to use typedef Requirements Ubuntu 20.04
+# 0x0E C- Sttructures, typedef
+This directory contains all the tasks for the above mentioned project

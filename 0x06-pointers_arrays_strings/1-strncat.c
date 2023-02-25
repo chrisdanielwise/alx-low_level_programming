@@ -1,35 +1,27 @@
 #include "main.h"
-/**
- *_strncat- append string
- *@dest: checked
- *@src: checked
- *@n: checked
- *Return: dest
- */
 
+/**
+ * _strncat - concatenates two strings
+ *
+ * @dest: destination
+ * @src: source
+ * @n: number of bytes
+ *
+ * Return: dest
+ */
 char *_strncat(char *dest, char *src, int n)
 {
 	int i, j;
 
-	i = 0;
-
-	j = 0;
-
-	while (*(dest + i) != '\0')
-	{
+	/* To get length of destination */
+	for (i = 0; dest[i] != '\0';)
 		i++;
-		j++;
-	}
 
-	i = 0;
+	/* To get length of source to be copied */
+	for (j = 0; src[j] != '\0' && j < n; j++)
+		dest[i + j] = src[j];
 
-	while (*(src + i) != *(src + n))
-	{
-		dest[j] = src[i];
-		i++;
-		j++;
-	}
-	dest[j] = '\0';
-
+	/* To add null terminator */
+	dest[i + j] = '\0';
 	return (dest);
 }

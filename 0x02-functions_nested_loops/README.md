@@ -1,1 +1,3 @@
-This Repository contains list of nexted loop scripts in c programming language
+# 0x02. C - Functions, nested loops
+
+This directory contains all the tasks for the above mentioned project

@@ -1,21 +1,24 @@
-#include <stdlib.h>
 #include <stdio.h>
+
 /**
- * main - base16 lowercase letters
- * Return: success-0
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-int i;
-char y;
-for (i = 0; i <= 9; i++)
-{
-putchar(i + '0');
-}
-for (y = 'a'; y <= 'f'; y++)
-{
-putchar(y);
-}
-putchar('\n');
-return (0);
+	int ch;
+	int i;
+
+	for (i = '0'; i <= '9'; i++)
+
+		putchar(i);
+
+	for (ch = 'a'; ch <= 'f'; ch++)
+
+		putchar(ch);
+
+	putchar('\n');
+
+	return (0);
 }

@@ -5,7 +5,6 @@
  * print_opcodes - print the opcodes of this program
  * @a: address of the main function
  * @n: number of bytes to print
- *
  * Return: void
  */
 void print_opcodes(char *a, int n)
@@ -19,15 +18,12 @@ void print_opcodes(char *a, int n)
 			printf(" ");
 	}
 	printf("\n");
-
 }
-
 /**
- * main - prints the opcodes of its own main function
- * @argc: number of arguments passed to the function
- * @argv: array of pointers to arguments
- *
- * Return: always O
+ * main - prints the opcodes
+ * @argc: arg count
+ * @argv: arg vector
+ * Return: always 0
  */
 int main(int argc, char **argv)
 {

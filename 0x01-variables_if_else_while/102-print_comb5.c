@@ -1,46 +1,31 @@
 #include <stdio.h>
+
 /**
- * main - Prints numbers between 00 to 99.
+ * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: Always (0)
  */
 int main(void)
 {
-int i, e, g, h, op1, op2;
-i = e = g = h = 48;
-while (h < 58)
-{
-g = 48;
-while (g < 58)
-{
-e = 48;
-while (e < 58)
-{
-i = 48;
-while (i < 58)
-{
-op1 = (h * 10) + g;
-op2 = (e * 10) + i;
-if (op1 < op2)
-{
-putchar(h);
-putchar(g);
-putchar(' ');
-putchar(e);
-putchar(i);
-if (h == 57 && g == 56 && e == 57 && i == 57)
-break;
-putchar(',');
-putchar(' ');
-}
-i++;
-}
-e++;
-}
-g++;
-}
-h++;
-}
-putchar('\n');
-return (0);
+	int num1, num2;
+
+	for (num1 = 0; num1 <= 98; num1++)
+	{
+		for (num2 = num1 + 1; num2 <= 99; num2++)
+		{
+			putchar((num1 / 10) + '0');
+			putchar((num1 % 10) + '0');
+			putchar(' ');
+			putchar((num2 / 10) + '0');
+			putchar((num2 % 10) + '0');
+
+			if (num1 == 98 && num2 == 99)
+				continue;
+
+			putchar(',');
+			putchar(' ');
+		}
+	}
+	putchar('\n');
+	return (0);
 }

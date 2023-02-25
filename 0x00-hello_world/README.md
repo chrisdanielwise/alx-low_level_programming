@@ -1,1 +1,2 @@
-My first c programming practices as a full stack Engineer
+#Hello World
+This contains projects that highlights the basics of the C programming language

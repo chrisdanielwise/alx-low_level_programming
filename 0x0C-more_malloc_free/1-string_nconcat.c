@@ -1,50 +1,52 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-
 /**
- * string_nconcat - concatenates two strings.
- * @s1: first string.
- * @s2: second string.
- * @n: amount of bytes.
- *
- * Return: pointer to the allocated memory.
- * if malloc fails, status value is equal to 98.
+ * string_nconcat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: str length to concatenate
+ * Return: ptr
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *sout;
-	unsigned int ls1, ls2, lsout, i;
+	char *ptr;
+	unsigned int i, j, k, l;
 
+	/* Treat as empty string if null */
 	if (s1 == NULL)
 		s1 = "";
-
 	if (s2 == NULL)
 		s2 = "";
 
-	for (ls1 = 0; s1[ls1] != '\0'; ls1++)
-		;
+	/* Get lengths of s1 and s2 using i and j respectively*/
+	for (i = 0; s1[i] != '\0';)
+		i++;
 
-	for (ls2 = 0; s2[ls2] != '\0'; ls2++)
-		;
+	for (j = 0; s2[j] != '\0';)
+		j++;
 
-	if (n > ls2)
-		n = ls2;
+	/* Dynamically allocate memory */
+	ptr = malloc((i + n + 1) * sizeof(char));
 
-	lsout = ls1 + n;
-
-	sout = malloc(lsout + 1);
-
-	if (sout == NULL)
+	/* Null check for ptr address */
+	if (ptr == NULL)
 		return (NULL);
 
-	for (i = 0; i < lsout; i++)
-		if (i < ls1)
-			sout[i] = s1[i];
-		else
-			sout[i] = s2[i - ls1];
+	/* Get values of s1 & s2 into ptr respectively */
+	for (k = 0; s1[k] != '\0'; k++)
+		ptr[k] = s1[k];
 
-	sout[i] = '\0';
-
-	return (sout);
+	if (n < j)
+	{
+		for (l = 0; l < n; l++, k++)
+			ptr[k] = s2[l];
+		ptr[k] = '\0';
+	}
+	else
+	{
+		for (l = 0; s2[l] != '\0'; l++, k++)
+			ptr[k] = s2[l];
+		ptr[k] = '\0';
+	}
+	return (ptr);
 }

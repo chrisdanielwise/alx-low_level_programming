@@ -1,29 +1,24 @@
 #include <stdio.h>
 
 /**
- * main - Prints the add of the even-valued
- * fibonacci numbers.
+ * main - print even-valued fibonacci terms
  *
- * Return: Always 0.
+ * Return: 0 always
  */
 int main(void)
 {
-	long int n1, n2, fn, afn;
+	long int i, x = 1, y = 2, sum = 0, tSum = 0;
 
-	n1 = 1;
-	n2 = 2;
-	fn = afn = 0;
-	while (fn <= 4000000)
+	for (i = 0; i < 49; i++)
 	{
-		fn = n1 + n2;
-		n1 = n2;
-		n2 = fn;
-		if ((n1 % 2) == 0)
+		if ((y % 2 == 0) && (y <= 4000000))
 		{
-			afn += n1;
+			tSum = tSum + y;
 		}
+		sum = x + y;
+		x = y;
+		y = sum;
 	}
-	printf("%ld\n", afn);
+	printf("%ld\n", tSum);
 	return (0);
 }
-

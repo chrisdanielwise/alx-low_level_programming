@@ -1,18 +1,14 @@
 #include "main.h"
 
 /**
- * append_text_to_file - appends text at the end of a file
- * @filename: filename.
- * @text_content: added content.
- *
- * Return: 1 if the file exists. -1 if the fails does not exist
- * or if it fails.
+ * append_text_to_file - appends text to end of a file
+ * @filename: name of file
+ * @text_content: text to be appended
+ * Return: 1 for success, 0 for otherwise
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd;
-	int nletters;
-	int rwr;
+	int fd, num_written, len;
 
 	if (!filename)
 		return (-1);
@@ -24,16 +20,14 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (text_content)
 	{
-		for (nletters = 0; text_content[nletters]; nletters++)
-			;
+		for (len = 0; text_content[len]; )
+			len++;
 
-		rwr = write(fd, text_content, nletters);
+		num_written = write(fd, text_content, len);
 
-		if (rwr == -1)
+		if (num_written == -1)
 			return (-1);
 	}
-
 	close(fd);
-
 	return (1);
 }

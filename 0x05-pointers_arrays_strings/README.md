@@ -1,1 +1,2 @@
-A c program that show practical examples of pointers arrays and strings
+# 0x05 C - Pointers, arrays and strings
+This project contains all the tasks for the project stated above.

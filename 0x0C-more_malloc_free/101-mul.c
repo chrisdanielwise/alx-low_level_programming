@@ -1,14 +1,10 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
- * _print - moves a string one place to the left and prints the string
+ * _print - moves a string one place to the left and prints it
  * @str: string to move
  * @l: size of string
- *
- * Return: void
  */
 void _print(char *str, int l)
 {
@@ -23,16 +19,14 @@ void _print(char *str, int l)
 			_putchar(str[i]);
 		i++;
 	}
-
 	_putchar('\n');
 	free(str);
 }
-
 /**
- * mul - multiplies a char with a string and places the answer into dest
- * @n: char to multiply
+ * mul - multiplies a char with a string ans inserts ans to dest
+ * @n : char to multiply
  * @num: string to multiply
- * @num_index: last non NULL index of num
+ * @num_index: last no NULL index of num
  * @dest: destination of multiplication
  * @dest_index: highest index to start addition
  *
@@ -47,7 +41,7 @@ char *mul(char n, char *num, int num_index, char *dest, int dest_index)
 	{
 		mul = (n - '0') * (num[j] - '0') + mulrem;
 		mulrem = mul / 10;
-		add = (dest[k] - '0') + (mul % 10) + addrem;
+		add = (des[k] - '0') + (mul % 10) + addrem;
 		addrem = add / 10;
 		dest[k] = add % 10 + '0';
 	}
@@ -58,15 +52,12 @@ char *mul(char n, char *num, int num_index, char *dest, int dest_index)
 		dest[k] = add % 10 + '0';
 	}
 	if (addrem)
-	{
 		return (NULL);
-	}
 	return (dest);
 }
 /**
- * check_for_digits - checks the arguments to ensure they are digits
+ * check_for_digits - checks the arguments for digits
  * @av: pointer to arguments
- *
  * Return: 0 if digits, 1 if not
  */
 int check_for_digits(char **av)
@@ -83,13 +74,10 @@ int check_for_digits(char **av)
 	}
 	return (0);
 }
-
 /**
- * init - initializes a string
- * @str: sting to initialize
- * @l: length of strinf
- *
- * Return: void
+ * init - init a string
+ * @str: string to initialize
+ * @l: len of string
  */
 void init(char *str, int l)
 {
@@ -99,13 +87,11 @@ void init(char *str, int l)
 		str[i] = '0';
 	str[i] = '\0';
 }
-
 /**
- * main - multiply two numbers
+ * main - mul two numbers
  * @argc: number of arguments
  * @argv: argument vector
- *
- * Return: zero, or exit status of 98 if failure
+ * Return: 0 or exit staturs of 98 if failure
  */
 int main(int argc, char *argv[])
 {
@@ -136,6 +122,7 @@ int main(int argc, char *argv[])
 	for (ti = l2 - 1, i = 0; ti >= 0; ti--, i++)
 	{
 		t = mul(argv[2][ti], argv[1], l1 - 1, a, (ln - 2) - i);
+
 		if (t == NULL)
 		{
 			for (ti = 0; e[ti]; ti++)

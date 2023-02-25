@@ -1,2 +1,3 @@
-This Repository contains files that those simple task in c programming
-(0x00. C - Hello, World)
+# alx low level proramming
+This repo contains all the directories and files needed for 
+the corresponding projects.
